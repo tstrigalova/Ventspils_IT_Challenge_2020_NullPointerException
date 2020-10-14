@@ -44,7 +44,6 @@ function Get2019Data(maxAge){
     for(let i=0;i<rangeData.length;i++){
         let len = rangeData[i].end-rangeData[i].start+1;
         let avg = Math.round(rangeData[i].count/len);
-        console.log('avg '+avg);
         for(let j=0;j<len;j++) result.push(avg);
     }
     return result;

@@ -71,6 +71,10 @@ function GetNextPopulationData(previousYearData){
     for(let i=GetSliderValue(LifeExpectancySliderId);i>=1;i--){
         previousYearData[i]=previousYearData[i-1];
     }
+	for(let i=20;i<=30;i++){
+        previousYearData[i]+=Math.round((GetSliderValue(ImigrationSliderId)-GetSliderValue(EmigrationSliderId))/11);
+        if(previousYearData[i]<0) previousYearData[i]=0;
+    }
     previousYearData[0]=Math.round((previousYearData[GetSliderValue(AverageReproductionAgeSliderId)]/2)*GetSliderValue(AverageChildrenCountSliderId));
     return previousYearData;
 }
